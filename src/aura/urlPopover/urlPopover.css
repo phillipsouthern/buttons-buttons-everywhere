@@ -1,0 +1,4 @@
+.THIS.no-pointer .pointer
+{
+    visibility: hidden !important;
+}

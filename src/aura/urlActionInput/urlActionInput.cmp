@@ -1,0 +1,34 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" >
+	
+    <aura:attribute name="account" type="Object"/>
+	<aura:attribute name="simpleAccount" type="Object"/>
+    <aura:attribute name="accountError" type="String"/>
+	<force:recordData aura:id="accountRecordLoader"
+		recordId="{!v.recordId}"
+		fields="Type,Find_Coffee_URL__c"
+    	targetRecord="{!v.account}"
+		targetFields="{!v.simpleAccount}"
+		targetError="{!v.accountError}"
+        recordUpdated="{!c.urlRedirect}"
+    />
+    
+    <div aura:id="div1"></div>
+    
+    
+    <div class="slds-p-bottom_large slds-p-left_large" style="width:500px">
+        <lightning:formattedText class="title slds-text-heading--medium" value="Please enter Type before proceeding."/><br/>
+        <br/>
+        <lightning:recordEditForm aura:id="recordViewForm" 
+                                     recordId="{!v.recordId}"
+                                     objectApiName="Account"
+                                  	onload="{!c.handleLoad}"
+                                    onsubmit="{!c.handleSubmit}"
+                                    onsuccess="{!c.handleSuccess}"
+                                  	>
+            <lightning:messages />
+            <lightning:inputField fieldName="Type" />
+            <lightning:button aura:id="submit" type="submit" label="Update record" class="slds-m-top_medium" />
+        </lightning:recordEditForm>
+    </div> 
+    
+</aura:component>

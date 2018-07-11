@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<aura:attribute name="account" type="Object"/>
+	<aura:attribute name="simpleAccount" type="Object"/>
+    <aura:attribute name="accountError" type="String"/>
+	<force:recordData aura:id="accountRecordLoader"
+		recordId="{!v.recordId}"
+		fields="Type,Find_Coffee_URL__c"
+    	targetRecord="{!v.account}"
+		targetFields="{!v.simpleAccount}"
+		targetError="{!v.accountError}"
+    />
+    
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <lightning:button label="FIND COFFEE (popover)" title="FIND COFFEE" onclick="{!c.urlRedirect}" class="mypopover"/>
+    
+</aura:component>
