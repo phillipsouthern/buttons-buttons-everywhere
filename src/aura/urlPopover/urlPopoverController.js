@@ -12,10 +12,9 @@
             referenceSelector: ".mypopover",
             cssClass: "slds-popover_walkthrough,slds-popover_tooltip,slds-popover__body,slds-nubbin_left,no-pointer,cUrlPopover"
             }).then(function (overlay) {
-                setTimeout(function(){ 
-                    //close the popover after 3 seconds
+                setTimeout(function(){
                     overlay.close(); 
-                }, 10000);
+                }, 5000);
             });
             
         }
